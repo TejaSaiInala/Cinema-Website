@@ -19,7 +19,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="screens")
-public class Screen {
+public class ScreenMovie {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="screenid")
@@ -41,6 +41,7 @@ public class Screen {
 	@Column(name="theatreid")
 	private long theatreId;
 	
+	private String movieName;
 	
 //	@ManyToOne //( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=Theatre.class )
 //	//@JoinColumn(name="theatreid", nullable=false)
@@ -53,12 +54,12 @@ public class Screen {
 	//private Date showDate;
 	
 	//private Time showTime;
-	public Screen()
+	public ScreenMovie()
 	{
 		
 	}
 	
-	public Screen(long screenId, int capacity, int occupiedCapacity,
+	public ScreenMovie(long screenId, int capacity, int occupiedCapacity,
 			long theatreId, Time showTime, Date showDate) {
 		super();
 		this.screenId = screenId;
@@ -119,7 +120,13 @@ public class Screen {
 	}*/
 	
 	
-	  public long getTheatreId() { return theatreId; } 
+	  public long getTheatreId() { return theatreId; } public String getMovieName() {
+		return movieName;
+	}
+
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
+	}
 
 	public void
 	  setTheatreId(long theatreId) { this.theatreId = theatreId; }

@@ -5,10 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableFeignClients
+//@EnableJpaRepositories("com.CinemaProject.theatreservice.repository.screenRepository")
 public class TheatreServiceApplication {
 
 	@Bean
@@ -21,5 +24,4 @@ public class TheatreServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TheatreServiceApplication.class, args);
 	}
-
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.CinemaProject.usersservice.model.Screen;
@@ -20,7 +21,7 @@ import com.CinemaProject.usersservice.model.Theatremovie;
 import com.CinemaProject.usersservice.model.usersHistory;
 import com.CinemaProject.usersservice.repository.userHistoryRepository;
 
-@Controller
+@RestController
 public class usersHistoryController {
 
 	@Autowired
@@ -31,7 +32,7 @@ public class usersHistoryController {
 	 */
 	
 	@PostMapping("/change/user/{uid}/screen/{sid}/count/{c}")
-	@ResponseBody
+	//@ResponseBody
 	public usersHistory saveUsersHistory(@PathVariable long uid, 
 			@PathVariable long sid, @PathVariable long c)
 	{
@@ -65,11 +66,12 @@ public class usersHistoryController {
 		return uHisRepo.save(uh);
 	}
 	
-	@GetMapping("/user/{id}")
-	@ResponseBody
+	@GetMapping("/userHistory/{id}")
+	//@ResponseBody
 	public List<usersHistory> retrieveUsersHistoryByUserId(@PathVariable long id)
 	{
 		return uHisRepo.findByUserId(id);
 	}
+	
 	
 }

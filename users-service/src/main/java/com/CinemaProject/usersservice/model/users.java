@@ -34,16 +34,20 @@ public class users {
 	@Column(name="passwordhash")
 	private String password;
     
-    @ValidPhonenumber
-    @NotBlank(message = "Phone Number is mandatory")
+    //@ValidPhonenumber
+    //@NotBlank(message = "Phone Number is mandatory")
 	@Column(name="phonenumber")
 	private String phoneNumber;
 	
+    
+    @Column(name="role")
+	private String role;
 	
-	public users()
+    public users()
 	{	}
 	
-	public users(int id, String firstName, String lastName, String email, String password, String phoneNumber) {
+	public users(int id, String firstName, String lastName, String email, String password, String phoneNumber,
+			String role) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -51,6 +55,7 @@ public class users {
 		this.email = email;
 		this.password = password;
 		this.phoneNumber = phoneNumber;
+		this.role = role;
 	}
 	
 	public long getId() {
@@ -90,4 +95,12 @@ public class users {
 		this.phoneNumber = phoneNumber;
 	}
 	
+	public String getRole()
+	{
+		return role;
+	}
+	public void setRole(String role)
+	{
+		this.role = role;
+	}
 }

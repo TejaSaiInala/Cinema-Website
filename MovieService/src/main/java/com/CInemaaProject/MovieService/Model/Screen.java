@@ -23,7 +23,7 @@ public class Screen {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="screenid")
-	private long screenId;
+	private long id;
 	@Column(name="capacity")
 	private int capacity;
 	@Column(name="occupiedcapacity")
@@ -40,6 +40,9 @@ public class Screen {
 	private Time showTime;
 	@Column(name="theatreid")
 	private long theatreId;
+	
+	
+	private String movieName;
 	
 //	@ManyToOne //( cascade = {CascadeType.PERSIST, CascadeType.MERGE}, targetEntity=Theatre.class )
 //	//@JoinColumn(name="theatreid", nullable=false)
@@ -58,9 +61,9 @@ public class Screen {
 	}
 	
 	public Screen(long screenId, int capacity, int occupiedCapacity,
-			long theatreId, Time showTime, Date showDate) {
+			long theatreId, Time showTime, Date showDate, String movieName) {
 		super();
-		this.screenId = screenId;
+		this.id = screenId;
 		this.capacity = capacity;
 		this.occupiedCapacity = occupiedCapacity;
 		//this.showsPerDay = showsPerDay;
@@ -68,17 +71,28 @@ public class Screen {
 		this.showTime = showTime;
 		//this.showDateTime = showDateTime;
 		this.theatreId = theatreId;
+		this.movieName = movieName;
 	}
 	
+	
+	
+	public String getMovieId() {
+		return movieName;
+	}
+
+	public void setMovieId(String movieId) {
+		this.movieName = movieId;
+	}
+
 	public void setScreenId(long screenId) {
-		this.screenId = screenId;
+		this.id = screenId;
 	}
 
 	public Long getScreenId() {
-		return screenId;
+		return id;
 	}
 	public void setScreenId(Long screenId) {
-		this.screenId = screenId;
+		this.id = screenId;
 	}
 	public int getCapacity() {
 		return capacity;
